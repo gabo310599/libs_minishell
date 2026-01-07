@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 13:45:58 by gojeda            #+#    #+#             */
-/*   Updated: 2026/01/07 10:36:04 by gojeda           ###   ########.fr       */
+/*   Updated: 2026/01/07 10:52:42 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include "../../libft/libft.h"
-# include "../token.h"
+# include "../../token.h"
 # define NORMAL 0
 # define IN_SQUOTE 1
 # define IN_DQUOTE 2

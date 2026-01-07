@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 10:21:58 by gojeda            #+#    #+#             */
-/*   Updated: 2026/01/07 10:38:31 by gojeda           ###   ########.fr       */
+/*   Updated: 2026/01/07 10:54:00 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include "../../libft/libft.h"
-# include "../token.h"
+# include "../../token.h"
 
 typedef enum e_redir_type
 {
