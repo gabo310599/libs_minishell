@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 08:18:21 by gojeda            #+#    #+#             */
-/*   Updated: 2026/01/16 08:55:55 by gojeda           ###   ########.fr       */
+/*   Updated: 2026/01/16 09:18:00 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static t_redir_type	token_to_redir_type(t_token_type type)
 		return (REDIR_HEREDOC);
 	return (-1);
 }
-
 
 //Handler para WORD
 bool	parse_word(t_pipeline *p, t_cmd **cmd, t_token *tok)
@@ -69,6 +68,3 @@ bool	dispatch_token(t_pipeline *p, t_cmd **cmd, t_token **tok)
 		return (parse_redir(*cmd, tok));
 	return (false);
 }
-
-
-

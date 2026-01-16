@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 07:49:21 by gojeda            #+#    #+#             */
-/*   Updated: 2026/01/16 09:05:12 by gojeda           ###   ########.fr       */
+/*   Updated: 2026/01/16 09:17:28 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 //Funcion principal de parseo
 t_pipeline	*parse_tokens(t_token *tokens)
 {
-	t_pipeline	*p;
-	t_cmd		*cmd;
-	t_token		*tok;
+	t_pipeline		*p;
+	t_cmd			*cmd;
+	t_token			*tok;
 	t_token_type	prev_type;
 
 	p = pipeline_new();
@@ -39,10 +39,3 @@ t_pipeline	*parse_tokens(t_token *tokens)
 		return (free_all(p, cmd), NULL);
 	return (p);
 }
-
-
-
-
-
-
-
