@@ -4,7 +4,11 @@ CC = cc
 AR = ar rcs
 CFLAGS = -Wall -Werror -Wextra -g
 
-SRCS = 
+SRCS = src/cmd_utils.c \
+		src/free.c \
+		src/handlers.c \
+		src/parser_utils.c \
+		src/parser.c
 
 OBJS = $(SRCS:.c=.o)
 

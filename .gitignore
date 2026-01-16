@@ -1,3 +1,4 @@
+parser_test
 lexer_test
 *.a
 *.o
