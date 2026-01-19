@@ -6,7 +6,7 @@
 #    By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/11 16:33:59 by gojeda            #+#    #+#              #
-#    Updated: 2026/01/07 04:43:33 by gojeda           ###   ########.fr        #
+#    Updated: 2026/01/19 12:31:31 by gojeda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,8 @@ SRC = ft_atoi.c \
 		ft_lstmap_bonus.c \
 		ft_lstnew_bonus.c \
 		ft_lstsize_bonus.c \
-		ft_realloc.c
+		ft_realloc.c \
+		ft_str_join_free.c
 SRC_BONUS = ft_lstadd_back_bonus.c \
 			ft_lstadd_front_bonus.c \
 			ft_lstclear_bonus.c \

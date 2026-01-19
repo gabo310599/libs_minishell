@@ -6,34 +6,18 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 13:45:58 by gojeda            #+#    #+#             */
-/*   Updated: 2026/01/07 10:52:42 by gojeda           ###   ########.fr       */
+/*   Updated: 2026/01/19 10:46:17 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEXER_H
 # define LEXER_H
 
-# include <stddef.h>
-# include <stdbool.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include "../../libft/libft.h"
-# include "../../token.h"
+# include "../../minishell.h"
+
 # define NORMAL 0
 # define IN_SQUOTE 1
 # define IN_DQUOTE 2
-
-/* Resultado del lexer: lista ligada de tokens */
-typedef struct s_lexer
-{
-	t_token		*head;
-	t_token		*tail;
-	int			error;
-	t_token		*current_word;
-	t_segment	*current_seg;
-	bool		current_expand;
-}	t_lexer;
 
 /* CRUD */
 t_lexer			*lexer_create(void);

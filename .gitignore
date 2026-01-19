@@ -1,4 +1,6 @@
 parser_test
 lexer_test
+expander_test
+env_test
 *.a
 *.o
