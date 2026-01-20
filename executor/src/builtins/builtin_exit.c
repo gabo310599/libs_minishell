@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 21:22:49 by gojeda            #+#    #+#             */
-/*   Updated: 2026/01/19 21:26:01 by gojeda           ###   ########.fr       */
+/*   Updated: 2026/01/20 13:22:26 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,20 @@ static int	exit_status_from_str(char *s)
 bool	builtin_exit(t_cmd *cmd, int *last_status)
 {
 	write(2, "exit\n", 5);
-	if (!cmd->argv[1])
+	if (!cmd->argv_expanded[1])
 		exit(*last_status);
-	if (!is_numeric(cmd->argv[1]))
+	if (!is_numeric(cmd->argv_expanded[1]))
 	{
 		write(2, "minishell: exit: ", 17);
-		write(2, cmd->argv[1], ft_strlen(cmd->argv[1]));
+		write(2, cmd->argv_expanded[1], ft_strlen(cmd->argv_expanded[1]));
 		write(2, ": numeric argument required\n", 28);
 		exit(255);
 	}
-	if (cmd->argv[2])
+	if (cmd->argv_expanded[2])
 	{
 		write(2, "minishell: exit: too many arguments\n", 37);
 		*last_status = 1;
 		return (false);
 	}
-	exit(exit_status_from_str(cmd->argv[1]));
+	exit(exit_status_from_str(cmd->argv_expanded[1]));
 }

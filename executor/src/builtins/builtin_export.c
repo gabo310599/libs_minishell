@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 20:44:17 by gojeda            #+#    #+#             */
-/*   Updated: 2026/01/19 20:56:22 by gojeda           ###   ########.fr       */
+/*   Updated: 2026/01/20 13:25:10 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static bool	is_valid_key(const char *s)
 {
 	int	i;
 
-	if (!s || !ft_isalpha(s[0]) && s[0] != '_')
+	if (!s || (!ft_isalpha(s[0]) && s[0] != '_'))
 		return (false);
 	i = 1;
 	while (s[i] && s[i] != '=')
@@ -88,7 +88,7 @@ bool	builtin_export(t_cmd *cmd, t_env **env, int *last_status)
 	int		i;
 	bool	ok;
 
-	if (!cmd->argv[1])
+	if (!cmd->argv_expanded[1])
 	{
 		print_export(*env);
 		*last_status = 0;
@@ -96,9 +96,9 @@ bool	builtin_export(t_cmd *cmd, t_env **env, int *last_status)
 	}
 	i = 1;
 	ok = true;
-	while (cmd->argv[i])
+	while (cmd->argv_expanded[i])
 	{
-		if (!export_one(cmd->argv[i], env))
+		if (!export_one(cmd->argv_expanded[i], env))
 			ok = false;
 		i++;
 	}

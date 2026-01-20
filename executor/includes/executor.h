@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 19:40:17 by gojeda            #+#    #+#             */
-/*   Updated: 2026/01/19 21:37:29 by gojeda           ###   ########.fr       */
+/*   Updated: 2026/01/20 15:48:04 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,17 @@
 bool	execute_pipeline(t_pipeline *p, t_env *env, int *last_status);
 bool	apply_redirections(t_redir *r);
 bool	execute_simple_cmd(t_cmd *cmd, t_env *env, int *last_status);
+int		backup_fd(int fd);
+void	restore_fd(int backup, int target);
+
+//Pipelines
+bool	execute_single_builtin(t_cmd *cmd, t_env **env, int *last_status);
+bool	execute_no_pipe(t_pipeline *p, t_env *env, int *last_status);
+bool	create_pipe_if_needed(int i, int count, int fd[2]);
+void	setup_pipe_fds(t_exec_ctx *ctx);
+void	close_pipe_fds(t_exec_ctx *ctx);
+void	exec_child_cmd(t_cmd *cmd, t_exec_ctx *ctx);
+void	exec_pipe_child(t_cmd *cmd, t_exec_ctx *ctx);
 
 //Builtins
 bool	is_builtin(char *cmd);

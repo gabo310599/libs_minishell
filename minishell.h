@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 10:33:39 by gojeda            #+#    #+#             */
-/*   Updated: 2026/01/19 20:38:01 by gojeda           ###   ########.fr       */
+/*   Updated: 2026/01/20 15:39:22 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@
 # include <stdio.h>
 # include "libft/libft.h"
 # include <fcntl.h>
+# include <signal.h>
+# include <readline/readline.h>
+# include <readline/history.h>
+# include <sys/wait.h>
+
+//Unica variable global para signals
+extern int	g_signal;
 
 // **************************************************************************
 //TOKEN
@@ -149,5 +156,38 @@ typedef struct s_expand_ctx
 
 // **************************************************************************
 //EXECUTOR
+
+typedef struct s_exec_base
+{
+	t_env	*env;
+	int		*last_status;
+}	t_exec_base;
+
+typedef struct s_exec_ctx
+{
+	t_exec_base	*base;
+	int			prev_fd;
+	int			fd[2];
+	bool		has_next;
+}	t_exec_ctx;
+
+// **************************************************************************
+//MINISHELL
+typedef struct s_shell
+{
+	t_env	*env;
+	int		last_status;
+}	t_shell;
+
+// **************************************************************************
+//Funciones
+
+//Signals
+void	setup_signals_interactive(void);
+void	setup_signals_exec(void);
+void	setup_signals_parent(void);
+
+//Limpieza
+void	cleanup_shell(t_shell *sh);
 
 #endif

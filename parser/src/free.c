@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 02:38:42 by gojeda            #+#    #+#             */
-/*   Updated: 2026/01/16 08:26:14 by gojeda           ###   ########.fr       */
+/*   Updated: 2026/01/20 15:06:38 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,26 @@ void	free_all(t_pipeline *p, t_cmd *cmd)
 //Liberamos las redirecciones
 void	free_redirs(t_redir *r)
 {
-	t_redir	*tmp;
+	t_redir	*next;
 
 	while (r)
 	{
-		tmp = r->next;
+		next = r->next;
 		free(r);
-		r = tmp;
+		r = next;
 	}
+}
+
+static void	free_str_array(char **arr)
+{
+	int	i;
+
+	if (!arr)
+		return ;
+	i = 0;
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
 }
 
 //Liberamos los comandos
@@ -38,7 +50,10 @@ void	free_cmd(t_cmd *cmd)
 {
 	if (!cmd)
 		return ;
-	free(cmd->argv);
+	if (cmd->argv_expanded)
+		free_str_array(cmd->argv_expanded);
+	if (cmd->argv)
+		free(cmd->argv);
 	free_redirs(cmd->redirs);
 	free(cmd);
 }

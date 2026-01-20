@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 21:15:41 by gojeda            #+#    #+#             */
-/*   Updated: 2026/01/19 21:20:54 by gojeda           ###   ########.fr       */
+/*   Updated: 2026/01/20 13:21:09 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ bool	builtin_echo(t_cmd *cmd, int *last_status)
 
 	i = 1;
 	newline = true;
-	while (cmd->argv[i] && is_n_flag(cmd->argv[i]))
+	while (cmd->argv_expanded[i] && is_n_flag(cmd->argv_expanded[i]))
 	{
 		newline = false;
 		i++;
 	}
-	print_echo_args(cmd->argv, i);
+	print_echo_args(cmd->argv_expanded, i);
 	if (newline)
 		write(1, "\n", 1);
 	*last_status = 0;

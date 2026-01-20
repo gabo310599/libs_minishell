@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 02:14:53 by gojeda            #+#    #+#             */
-/*   Updated: 2026/01/16 08:15:57 by gojeda           ###   ########.fr       */
+/*   Updated: 2026/01/20 15:10:46 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_cmd	*cmd_new(void)
 	cmd->argv = NULL;
 	cmd->argc = 0;
 	cmd->redirs = NULL;
+	cmd->argv_expanded = NULL;
 	return (cmd);
 }
 

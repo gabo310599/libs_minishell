@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 20:59:26 by gojeda            #+#    #+#             */
-/*   Updated: 2026/01/19 21:01:52 by gojeda           ###   ########.fr       */
+/*   Updated: 2026/01/20 13:23:04 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ bool	builtin_unset(t_cmd *cmd, t_env **env, int *last_status)
 
 	i = 1;
 	ok = true;
-	while (cmd->argv[i])
+	while (cmd->argv_expanded[i])
 	{
-		if (!unset_one(cmd->argv[i], env))
+		if (!unset_one(cmd->argv_expanded[i], env))
 			ok = false;
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 20:29:58 by gojeda            #+#    #+#             */
-/*   Updated: 2026/01/19 20:40:08 by gojeda           ###   ########.fr       */
+/*   Updated: 2026/01/20 13:20:35 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ static char	*cd_get_target(t_cmd *cmd, t_env *env)
 {
 	char	*target;
 
-	if (!cmd->argv[1])
+	if (!cmd->argv_expanded[1])
 		return (env_get(env, "HOME"));
-	if (!ft_strcmp(cmd->argv[1], "-"))
+	if (!ft_strncmp(cmd->argv_expanded[1], "-", 2))
 		return (env_get(env, "OLDPWD"));
-	target = ft_strdup(cmd->argv[1]);
+	target = ft_strdup(cmd->argv_expanded[1]);
 	return (target);
 }
 
