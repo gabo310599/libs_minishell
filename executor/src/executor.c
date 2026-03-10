@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 19:44:27 by gojeda            #+#    #+#             */
-/*   Updated: 2026/01/20 16:34:29 by gojeda           ###   ########.fr       */
+/*   Updated: 2026/03/10 11:15:22 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	exec_child(t_cmd *cmd, t_env *env)
 	setup_signals_exec();
 	if (!apply_redirections(cmd->redirs))
 		exit(1);
-	execp(cmd->argv_expanded[0], cmd->argv_expanded);
+	execvp(cmd->argv_expanded[0], cmd->argv_expanded);
 	perror(cmd->argv_expanded[0]);
 	exit(127);
 }
