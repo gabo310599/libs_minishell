@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 19:44:27 by gojeda            #+#    #+#             */
-/*   Updated: 2026/03/10 11:15:22 by gojeda           ###   ########.fr       */
+/*   Updated: 2026/03/17 20:25:18 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,20 @@
 //Ejecutamos al hijo
 static void	exec_child(t_cmd *cmd, t_env *env)
 {
-	(void)env;
+	char	*path;
+	char	**envp;
 
 	setup_signals_exec();
 	if (!apply_redirections(cmd->redirs))
 		exit(1);
-	execvp(cmd->argv_expanded[0], cmd->argv_expanded);
+	path = get_cmd_path(cmd->argv_expanded[0], env);
+	if (!path)
+	{
+		perror(cmd->argv_expanded[0]);
+		exit(127);
+	}
+	envp = env_to_envp(env);
+	execve(path, cmd->argv_expanded, envp);
 	perror(cmd->argv_expanded[0]);
 	exit(127);
 }

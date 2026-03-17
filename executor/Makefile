@@ -20,7 +20,8 @@ SRCS =	src/aply_redirections.c \
 		src/builtins/builtin_exit.c \
 		src/builtins/builtin_export.c \
 		src/builtins/builtin_pwd.c \
-		src/builtins/builtin_unset.c
+		src/builtins/builtin_unset.c \
+		src/executor_utils.c
 
 OBJS = $(SRCS:.c=.o)
 

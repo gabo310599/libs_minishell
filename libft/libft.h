@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 13:04:58 by gojeda            #+#    #+#             */
-/*   Updated: 2026/01/19 12:30:57 by gojeda           ###   ########.fr       */
+/*   Updated: 2026/03/17 20:59:55 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_str_join_free(char *s1, char *s2);
 void	*ft_realloc(void *ptr, size_t old_size, size_t new_size);
+char	*ft_strjoin_three(char *s1, char *s2, char *s3);
 /*******************************************************************/
 //Estructura para listas
 typedef struct s_list

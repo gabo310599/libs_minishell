@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 19:40:17 by gojeda            #+#    #+#             */
-/*   Updated: 2026/01/20 15:48:04 by gojeda           ###   ########.fr       */
+/*   Updated: 2026/03/17 20:49:16 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,10 @@ bool	builtin_echo(t_cmd *cmd, int *last_status);
 bool	builtin_exit(t_cmd *cmd, int *last_status);
 bool	builtin_pwd(int *last_status);
 bool	builtin_env(t_cmd *cmd, t_env *env, int *last_status);
+
+//Utils
+char	*get_cmd_path(char *cmd, t_env *env);
+char	**env_to_envp(t_env *env);
+void	free_str_array(char **arr);
 
 #endif
