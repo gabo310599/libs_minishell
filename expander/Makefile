@@ -8,7 +8,8 @@ SRCS = src/expand_pipeline.c \
 		src/expand_redir.c \
 		src/expand_segments.c \
 		src/expander_utils.c \
-		src/expand_token.c
+		src/expand_token.c \
+		src/expand_heredoc.c
 
 OBJS = $(SRCS:.c=.o)
 

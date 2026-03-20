@@ -41,7 +41,15 @@ static bool	apply_single_redir(t_redir *r)
 	int	fd;
 
 	if (r->type == REDIR_HEREDOC)
+	{
+		if (r->heredoc_fd != -1)
+		{
+			dup2(r->heredoc_fd, STDIN_FILENO);
+			close(r->heredoc_fd);
+			r->heredoc_fd = -1;
+		}
 		return (true);
+	}
 	fd = open_redir_fd(r);
 	if (fd < 0)
 		return (perror(r->target->value), false);

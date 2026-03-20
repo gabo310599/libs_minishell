@@ -17,12 +17,16 @@ static bool	expand_single_redir(t_redir *r, t_expand_ctx *ctx)
 {
 	char	*expanded;
 
+	r->heredoc_fd = -1;
 	if (r->type == REDIR_HEREDOC)
 	{
 		expanded = token_to_literal(r->target);
 		if (!expanded)
 			return (false);
 		r->target->value = expanded;
+		r->heredoc_fd = create_heredoc_pipe(expanded, ctx);
+		if(r->heredoc_fd == -1)
+			return (false);
 		return (true);
 	}
 	expanded = expand_token(r->target, ctx->env, ctx->last_status);

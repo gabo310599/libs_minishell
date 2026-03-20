@@ -35,4 +35,7 @@ bool	expand_pipeline(t_pipeline *p, t_env *env, int last_status);
 void	free_argv(char **argv);
 char	*token_to_literal(t_token *tok);
 
+//Heredoc
+int	create_heredoc_pipe(char *delimiter, t_expand_ctx *ctx);
+
 #endif

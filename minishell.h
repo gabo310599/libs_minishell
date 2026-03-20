@@ -104,6 +104,7 @@ typedef struct s_redir
 	t_redir_type	type;
 	t_token			*target;
 	struct s_redir	*next;
+	int				heredoc_fd;
 }	t_redir;
 
 //Estructura para los comandos simples
